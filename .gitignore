@@ -105,3 +105,6 @@ venv.bak/
 
 # test files
 test_files/
+
+#stackby log
+.stackby
