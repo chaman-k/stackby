@@ -1,26 +1,57 @@
-# StackBy [under development]
-Simple python CLI to stack files in a directory based on type, date and extension.  
-StackBy uses [Google's Fire module](https://github.com/google/python-fire) to make the command line interface. refer their docs for mode info.
+# StackBy
+Python CLI to stack files in a directory based on type, date and extension.  
+StackBy uses [Google's Fire module](https://github.com/google/python-fire) to make the command line interface. Refer their docs for mode info.
+
 
 ### Installation
+Install the package from PyPI
 ```
-pip3 install -r requirements.txt
+$ pip3 install stackby
+```
+If you encounter any permission error, use
+```
+$ sudo -H pip3 install stackby
 ```
 ### Usage
+
+StackBy is a handy CLI tool to make your life easier to clean up your folder with random files. Stack by can create separate subdirectories for files based on their extension, type or created date.
+
+#### Stack files by their extension  
+CD into the directory to clean up.
 ```
-#stack by file extension
-$ python3 stackby.py ext [DIRECTORY_PATH]
-
-#undo stacking operation
-$ python3 stackby.py undo [DIRECTORY_PATH] [number of steps to undo]
-$ python3 stackby.py undo ./test 2
-Default DIRECTORY_PATH is the present working directory and by default it reverts all the stacked files in the directory.
-If you want to revert only the last "n" stacked files then provide the value of "n" as command line argument.
-
-#stack by creation date
-$ python3 stackby.py created [DIRECTORY_PATH]
-
+$ stackby ext
 ```
+or simply specify the directory path to clean up.
+```
+$ stackby ext DIRECTORY_PATH
+```
+
+#### stack by creation date
+```
+$ stackby date
+```
+or simply specify the directory path to clean up.
+```
+$ stackby date DIRECTORY_PATH
+```
+#### stack by predefined type
+```
+$ stackby type
+```
+or simply specify the directory path to clean up.
+```
+$ stackby type DIRECTORY_PATH
+```
+#### Undo stacking in a directory  
+You can undo the last stacking inside a directory. CD into the directory where files has been stacked from. Make sure there exists the `.stackby` file. 
+```
+$ stackby undo
+```
+or simply supply the DIRECTORY_PATH where the `.stackby` file resides
+```
+$ stackby undo DIRECTORY_PATH
+```
+_Default DIRECTORY_PATH is the present working directory and by default it reverts all the stacked files in the directory._
 
 # Contributing
 To contribute to the project, Please take up the tasks specified in the issues. Add a comment in the issues if you are taking up one. 
@@ -33,3 +64,4 @@ a good branch name should explain what this branch is about eg. `stackby_type`, 
 - Add the upstream url of original repository, follow the instructions [here](https://help.github.com/articles/configuring-a-remote-for-a-fork/)
 - Make sure your repository is in sync with the original repository's master branch. Follow the instruction [here](https://help.github.com/articles/syncing-a-fork/) to know how to keep your local repository in sync.
 - Finally when you have made the changes, submit a pull request through github from the original repository, choose your branch against the master of original or create a new branch.
+
